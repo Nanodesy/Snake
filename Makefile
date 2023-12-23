@@ -4,7 +4,10 @@ build:
 compile: build
 	cmake --build build
 
-run: compile
+static-analysis:
+	cppcheck --std=c++17 src/**/*.cpp include/**/*.hpp
+
+run: compile static-analysis
 	./build/bin/Snake
 
 clean:
