@@ -7,7 +7,7 @@ Game::Game() : window(sf::VideoMode(WINDOW_SIZE.x, WINDOW_SIZE.y), "Snake"),
 			   sideBar(&statistic),
 			   snake(std::deque<sf::Vector2f>{sf::Vector2f(280, 280), sf::Vector2f(280, 320), sf::Vector2f(280, 360)})
 {
-	font.loadFromFile("/Users/vaazarov/Documents/Projects/C:C++/snake/Times New Roman.ttf");
+	font.loadFromFile("assets/font/OpenSans-Regular.ttf");
 	window.setFramerateLimit(30);
 	playerInput.onPausePressed([this](){switchPause();});
 	playerInput.onRestartPressed([this](){restart();});

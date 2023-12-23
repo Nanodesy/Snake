@@ -3,7 +3,7 @@
 Sidebar::Sidebar(Statistic *statistic) : statistic(statistic),
 										 backgroundColor(0xE6, 0xE6, 0xE6)
 {
-	font.loadFromFile("/Users/vaazarov/Documents/Projects/C:C++/snake/Times New Roman.ttf");
+	font.loadFromFile("assets/font/OpenSans-Regular.ttf");
 	font.setSmooth(true);
 }
 
