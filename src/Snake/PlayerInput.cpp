@@ -1,5 +1,4 @@
 #include "PlayerInput.hpp"
-#include <iostream>
 
 PlayerInput::PlayerInput()
 {

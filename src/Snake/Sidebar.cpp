@@ -1,4 +1,6 @@
 #include "Sidebar.hpp"
+#include <cmath>
+#include <array>
 
 Sidebar::Sidebar(Statistic *statistic) : statistic(statistic),
 										 backgroundColor(0xE6, 0xE6, 0xE6)

@@ -1,5 +1,6 @@
 #include "Statistic.hpp"
 #include <iostream>
+#include <cmath>
 
 Statistic::Statistic() : appleCount(0), snakeSize(3)
 {

@@ -1,3 +1,4 @@
+#pragma once
 #include "Statistic.hpp"
 #include "SFML/Graphics.hpp"
 
