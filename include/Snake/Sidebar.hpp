@@ -1,11 +1,13 @@
 #pragma once
 #include "Statistic.hpp"
 #include "SFML/Graphics.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
 
 class Sidebar
 {
 public:
-	Sidebar(Statistic *statistic);
+	Sidebar(Statistic *statistic, const Application::FontHolder& fontHolder);
 	void render(sf::RenderWindow *window);
 
 private:
@@ -18,6 +20,6 @@ private:
 
 private:
 	Statistic *statistic;
+	const Application::FontHolder& fontHolder;
 	sf::Color backgroundColor;
-	sf::Font font;
 };
