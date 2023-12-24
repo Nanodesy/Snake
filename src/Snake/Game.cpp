@@ -4,10 +4,10 @@
 sf::Vector2f Game::WINDOW_SIZE = sf::Vector2f(800, 600);
 
 Game::Game() : window(sf::VideoMode(WINDOW_SIZE.x, WINDOW_SIZE.y), "Snake"),
-			   sideBar(&statistic),
+			   sideBar(&statistic, fontHolder),
 			   snake(std::deque<sf::Vector2f>{sf::Vector2f(280, 280), sf::Vector2f(280, 320), sf::Vector2f(280, 360)})
 {
-	font.loadFromFile("assets/font/OpenSans-Regular.ttf");
+	fontHolder.loadFromFile(Resource::Font::Regular, "assets/font/OpenSans-Regular.ttf");
 	window.setFramerateLimit(30);
 	playerInput.onPausePressed([this](){switchPause();});
 	playerInput.onRestartPressed([this](){restart();});
@@ -70,7 +70,7 @@ void Game::render()
 	if (isPaused)
 	{
 		sf::Text pausedText;
-		pausedText.setFont(font);
+		pausedText.setFont(fontHolder.get(Resource::Font::Regular));
 		pausedText.setString("Paused");
 		pausedText.setPosition(sf::Vector2f(275, 10));
 		window.draw(pausedText);
@@ -79,7 +79,7 @@ void Game::render()
 	if (isGameOver)
 	{
 		sf::Text pausedText;
-		pausedText.setFont(font);
+		pausedText.setFont(fontHolder.get(Resource::Font::Regular));
 		pausedText.setString("Game Over! Press R to restart...");
 		pausedText.setPosition(sf::Vector2f(125, 10));
 		window.draw(pausedText);

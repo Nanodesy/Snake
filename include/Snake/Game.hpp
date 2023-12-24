@@ -6,6 +6,8 @@
 #include "Sidebar.hpp"
 #include "Timer.hpp"
 #include "Apple.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
 #include <random>
 
 class Game
@@ -22,7 +24,7 @@ private:
 private:
 	static sf::Vector2f WINDOW_SIZE;
 	sf::RenderWindow window;
-	sf::Font font;
+	Application::FontHolder fontHolder;
 	Timer timer;
 	Statistic statistic;
 	Sidebar sideBar;

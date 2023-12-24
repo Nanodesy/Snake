@@ -2,11 +2,12 @@
 #include <cmath>
 #include <array>
 
-Sidebar::Sidebar(Statistic *statistic) : statistic(statistic),
-										 backgroundColor(0xE6, 0xE6, 0xE6)
+Sidebar::Sidebar(
+	Statistic *statistic,
+	const Application::FontHolder &fontHolder) : statistic(statistic),
+												 fontHolder(fontHolder),
+												 backgroundColor(0xE6, 0xE6, 0xE6)
 {
-	font.loadFromFile("assets/font/OpenSans-Regular.ttf");
-	font.setSmooth(true);
 }
 
 void Sidebar::render(sf::RenderWindow *window)
@@ -36,7 +37,7 @@ void Sidebar::renderTitle(sf::RenderWindow *window)
 	window->draw(titleBox);
 
 	sf::Text title;
-	title.setFont(font);
+	title.setFont(fontHolder.get(Resource::Font::Regular));
 	title.setStyle(sf::Text::Bold);
 	title.setCharacterSize(22);
 	title.setString("Snake");
@@ -57,7 +58,7 @@ void Sidebar::renderTime(sf::RenderWindow *window)
 	std::string secondsText = seconds >= 10 ? std::to_string(seconds) : "0" + std::to_string(seconds);
 
 	sf::Text timeTitle;
-	timeTitle.setFont(font);
+	timeTitle.setFont(fontHolder.get(Resource::Font::Regular));
 	timeTitle.setCharacterSize(12);
 	timeTitle.setStyle(sf::Text::Bold);
 	timeTitle.setString("TIME:");
@@ -67,7 +68,7 @@ void Sidebar::renderTime(sf::RenderWindow *window)
 	window->draw(timeTitle);
 
 	sf::Text timeValue;
-	timeValue.setFont(font);
+	timeValue.setFont(fontHolder.get(Resource::Font::Regular));
 	timeValue.setCharacterSize(12);
 	timeValue.setStyle(sf::Text::Bold);
 	timeValue.setString(hoursText + ":" + minutesText + ":" + secondsText);
@@ -80,7 +81,7 @@ void Sidebar::renderTime(sf::RenderWindow *window)
 void Sidebar::renderStatistic(sf::RenderWindow *window)
 {
 	sf::Text statisticsTitle;
-	statisticsTitle.setFont(font);
+	statisticsTitle.setFont(fontHolder.get(Resource::Font::Regular));
 	statisticsTitle.setCharacterSize(12);
 	statisticsTitle.setStyle(sf::Text::Bold);
 	statisticsTitle.setString("Statistics:");
@@ -97,7 +98,7 @@ void Sidebar::renderStatistic(sf::RenderWindow *window)
 	for (u_long i = 0; i < statisticsArray.size(); i++)
 	{
 		sf::Text key;
-		key.setFont(font);
+		key.setFont(fontHolder.get(Resource::Font::Regular));
 		key.setCharacterSize(12);
 		key.setString(statisticsArray[i]);
 		key.setFillColor(sf::Color::Black);
@@ -117,7 +118,7 @@ void Sidebar::renderHelp(sf::RenderWindow *window)
 	window->draw(helpBox);
 
 	sf::Text helpTitle;
-	helpTitle.setFont(font);
+	helpTitle.setFont(fontHolder.get(Resource::Font::Regular));
 	helpTitle.setCharacterSize(12);
 	helpTitle.setStyle(sf::Text::Bold);
 	helpTitle.setString("Help:");
@@ -138,7 +139,7 @@ void Sidebar::renderHelp(sf::RenderWindow *window)
 	for (u_long i = 0; i < keybindings.size(); i++)
 	{
 		sf::Text key;
-		key.setFont(font);
+		key.setFont(fontHolder.get(Resource::Font::Regular));
 		key.setCharacterSize(12);
 		key.setStyle(sf::Text::Bold);
 		key.setString(keybindings[i].first + ":");
@@ -149,7 +150,7 @@ void Sidebar::renderHelp(sf::RenderWindow *window)
 		window->draw(key);
 
 		sf::Text description;
-		description.setFont(font);
+		description.setFont(fontHolder.get(Resource::Font::Regular));
 		description.setCharacterSize(12);
 		description.setString(keybindings[i].second);
 		description.setFillColor(sf::Color::Black);
