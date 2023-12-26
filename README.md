@@ -21,8 +21,8 @@ Microsoft Visual C++ - functionality not verified.
 
 If you want to call CMake commands yourself:
 1. cmake -S . -B build
-2. cmake --build build --config Release
-3. cmake --install build --config Release
+2. cmake --build build
+3. cmake --install build
 
 Otherwise, you can use Makefile (make):
 1. make compile
